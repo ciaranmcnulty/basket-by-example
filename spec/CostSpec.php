@@ -12,17 +12,12 @@ class CostSpec extends ObjectBehavior
         $this->beConstructedThrough('fromString', ['10.00']);
     }
 
-    function it_is_initializable()
-    {
-        $this->shouldHaveType('Cost');
-    }
-
     function it_is_not_equal_to_different_value_costs()
     {
         $this->shouldNotBeLike(\Cost::fromString('9.00'));
     }
 
-    function it_is_equal_to_similar_costs()
+    function it_is_equal_to_same_value_costs()
     {
         $this->shouldBeLike(\Cost::fromString('10.00'));
     }
@@ -46,5 +41,20 @@ class CostSpec extends ObjectBehavior
     {
         $this->beConstructedThrough('fromString', ['0.00']);
         $this->isZero()->shouldReturn(true);
+    }
+
+    function it_is_greater_than_costs_lower_than_itself()
+    {
+        $this->isGreaterThan(\Cost::fromString('9.00'))->shouldReturn(true);
+    }
+
+    function it_is_not_greater_than_costs_higher_than_itself()
+    {
+        $this->isGreaterThan(\Cost::fromString('11.00'))->shouldReturn(false);
+    }
+
+    function it_is_not_greater_than_itself()
+    {
+        $this->isGreaterThan(\Cost::fromString('10.00'))->shouldReturn(false);
     }
 }

@@ -34,4 +34,9 @@ final class Cost
     {
         return $this->pence == 0;
     }
+
+    public function isGreaterThan(\Cost $otherCost)
+    {
+        return $this->pence > $otherCost->pence;
+    }
 }

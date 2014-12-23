@@ -6,10 +6,15 @@ class Basket
      * @var Cost
      */
     private $total;
+    /**
+     * @var DeliveryCostCalculator
+     */
+    private $calculator;
 
-    public function __construct()
+    public function __construct(DeliveryCostCalculator $calculator)
     {
         $this->total = Cost::fromString('0.00');
+        $this->calculator = $calculator;
     }
 
     public function addProductFromCatalogue(\Sku $sku, \Catalogue $catalogue)
@@ -24,7 +29,7 @@ class Basket
 
         if (!$cost->isZero()) {
             $cost = $cost->addPercentage(20);
-            $cost = $cost->add(\Cost::fromString('3.00'));
+            $cost = $cost->add($this->calculator->calculateFromTotal($this->total));
         }
 
         return $cost;
