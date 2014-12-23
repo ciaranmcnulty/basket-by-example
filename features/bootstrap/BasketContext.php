@@ -39,11 +39,11 @@ class BasketContext implements Context, SnippetAcceptingContext
     }
 
     /**
-     * @When I add the product with SKU :arg1 from the catalogue to my basket
+     * @When I add the product with SKU :sku from the catalogue to my basket
      */
-    public function iAddTheProductWithSkuFromTheCatalogueToMyBasket($arg1)
+    public function iAddTheProductWithSkuFromTheCatalogueToMyBasket(Sku $sku)
     {
-        throw new PendingException();
+        $
     }
 
     /**
