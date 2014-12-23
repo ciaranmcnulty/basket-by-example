@@ -11,6 +11,14 @@ use Behat\Gherkin\Node\TableNode;
  */
 class BasketContext implements Context, SnippetAcceptingContext
 {
+    private $catalogue;
+
+    public function __construct()
+    {
+        $this->catalogue = new InMemoryCatalogue();
+
+    }
+
     /**
      * @Transform :sku
      */
@@ -33,9 +41,7 @@ class BasketContext implements Context, SnippetAcceptingContext
     public function thereIsAProductWithSkuAndACostOfPsInTheCatalogue(Sku $sku, Cost $cost)
     {
         $aProduct = Product::withSkuAndCost($sku, $cost);
-
-        $aCatalogue = new InMemoryCatalogue();
-        $aCatalogue->listProduct($aProduct);
+        $this->catalogue->listProduct($aProduct);
     }
 
     /**
@@ -43,7 +49,8 @@ class BasketContext implements Context, SnippetAcceptingContext
      */
     public function iAddTheProductWithSkuFromTheCatalogueToMyBasket(Sku $sku)
     {
-        $
+        $aBasket = new Basket();
+        $aBasket->addProductFromCatalogue($sku, $this->catalogue);
     }
 
     /**
