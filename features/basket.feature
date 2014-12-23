@@ -11,19 +11,19 @@ Feature: Applying VAT and a delivery costs to the basket
   Scenario: Product costing less than £10 results in delivery cost of £3
     Given a product with SKU "RS1" and a cost of £5 has been listed in the catalogue
     When I add the product with SKU "RS1" from the catalogue to my basket
-    Then the total price of my basket should be £9
+    Then the total cost of my basket should be £9
 
   Scenario: Product costing more than £10 results in delivery cost of £2
     Given a product with SKU "RS2" and a cost of £15 has been listedhas been listed in the catalogue
     When I add the product with SKU "RS2" from the catalogue to my basket
-    Then the total price of my basket should be £20
+    Then the total cost of my basket should be £20
 
   Scenario: Product costing exactly £10 results in delivery cost of £3
     Given a product with SKU "RS3" and a cost of £10 has been listed in the catalogue
     When I add the product with SKU "RS3" from the catalogue to my basket
-    Then the total price of my basket should be £15
+    Then the total cost of my basket should be £15
 
   Scenario: Product costing £10 with added VAT still results in delivery cost of £3
     Given a product with SKU "RS4" and a cost of £9 has been listed in the catalogue
     When I add the product with SKU "RS4" from the catalogue to my basket
-    Then the total price of my basket should be £13.8
+    Then the total cost of my basket should be £13.8

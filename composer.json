@@ -3,7 +3,8 @@
         "behat/behat": "~3.0",
         "phpspec/phpspec": "~2.0",
         "phpunit/phpunit": "~4.0",
-        "ciaranmcnulty/phpspec-typehintedmethods": "~1.01"
+        "ciaranmcnulty/phpspec-typehintedmethods": "~1.01",
+        "everzet/persisted-objects": "dev-master"
     },
     "autoload": {
         "psr-0": {

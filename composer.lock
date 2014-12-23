@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f312c9ac5291c3658f59923dd5703303",
+    "hash": "07d9111511669a090ddd9fea4896850a",
     "packages": [],
     "packages-dev": [
         {
@@ -283,6 +283,59 @@
                 "instantiate"
             ],
             "time": "2014-10-13 12:58:55"
+        },
+        {
+            "name": "everzet/persisted-objects",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/everzet/persisted-objects.git",
+                "reference": "4d312d7acb60fa13f3e20d5f42f286765aced275"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/everzet/persisted-objects/zipball/4d312d7acb60fa13f3e20d5f42f286765aced275",
+                "reference": "4d312d7acb60fa13f3e20d5f42f286765aced275",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Everzet\\PersistedObjects\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Overly simplistic persistance implementations for functional testing",
+            "homepage": "https://github.com/everzet/persisted-objects",
+            "keywords": [
+                "BDD",
+                "ddd",
+                "persistance",
+                "repository",
+                "test"
+            ],
+            "time": "2014-12-19 17:36:03"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1711,7 +1764,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "everzet/persisted-objects": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

@@ -13,8 +13,11 @@ class BasketContext implements Context, SnippetAcceptingContext
 {
     private $catalogue;
 
+    private $basket;
+
     public function __construct()
     {
+        $this->basket = new Basket();
         $this->catalogue = new InMemoryCatalogue();
 
     }
@@ -49,15 +52,14 @@ class BasketContext implements Context, SnippetAcceptingContext
      */
     public function iAddTheProductWithSkuFromTheCatalogueToMyBasket(Sku $sku)
     {
-        $aBasket = new Basket();
-        $aBasket->addProductFromCatalogue($sku, $this->catalogue);
+        $this->basket->addProductFromCatalogue($sku, $this->catalogue);
     }
 
     /**
-     * @Then the total price of my basket should be £:arg1
+     * @Then the total cost of my basket should be £:cost
      */
-    public function theTotalPriceOfMyBasketShouldBePs($arg1)
+    public function theTotalPriceOfMyBasketShouldBePs(Cost $cost)
     {
-        throw new PendingException();
+        PHPUnit_Framework_Assert::assertEquals($cost, $this->basket->getTotalCost());
     }
 }

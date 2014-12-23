@@ -18,4 +18,14 @@ class ProductSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Product');
     }
+
+    function it_returns_its_cost()
+    {
+        $this->getCost()->shouldBeLike(Cost::fromString('10.00'));
+    }
+
+    function it_returns_its_sku()
+    {
+        $this->getSku()->shouldBeLike(Sku::fromString('PR001'));
+    }
 }
