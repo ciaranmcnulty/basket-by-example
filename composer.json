@@ -4,7 +4,12 @@
         "phpspec/phpspec": "~2.0",
         "phpunit/phpunit": "~4.0",
         "ciaranmcnulty/phpspec-typehintedmethods": "~1.01",
-        "everzet/persisted-objects": "dev-master"
+        "everzet/persisted-objects": "dev-master",
+        "behat/mink": "~1.0",
+        "behat/mink-extension": "~2.0",
+        "behat/mink-goutte-driver": "~1.0",
+        "ciaranmcnulty/behat-localwebserverextension" : "~1.0",
+        "ciaranmcnulty/behat-stepthroughextension": "~1.0"
     },
     "autoload": {
         "psr-0": {

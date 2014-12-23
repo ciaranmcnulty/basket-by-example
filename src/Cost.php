@@ -39,4 +39,9 @@ final class Cost
     {
         return $this->pence > $otherCost->pence;
     }
+
+    public function __toString()
+    {
+        return sprintf('%.2f', $this->pence/100);
+    }
 }

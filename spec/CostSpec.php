@@ -57,4 +57,9 @@ class CostSpec extends ObjectBehavior
     {
         $this->isGreaterThan(\Cost::fromString('10.00'))->shouldReturn(false);
     }
+
+    function it_can_be_treated_as_a_string()
+    {
+        $this->__toString()->shouldReturn('10.00');
+    }
 }

@@ -16,4 +16,9 @@ class SkuSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Sku');
     }
+
+    function it_can_be_treated_as_a_string()
+    {
+        $this->__toString()->shouldReturn('PR001');
+    }
 }

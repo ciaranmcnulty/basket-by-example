@@ -2,3 +2,15 @@ default:
   suites:
     domain:
       contexts: [ BasketContext ]
+    web:
+      contexts: [ BasketWebContext ]
+      filters: { tags: @critical }
+  extensions:
+    Behat\MinkExtension:
+      base_url: 'http://localhost:8000'
+      sessions:
+          default:
+              goutte: ~
+    Cjm\Behat\StepThroughExtension: ~
+    Cjm\Behat\LocalWebserverExtension:
+      suites: [ web ]

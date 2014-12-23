@@ -1,13 +1,13 @@
 <?php
 
 use Everzet\PersistedObjects\AccessorObjectIdentifier;
-use Everzet\PersistedObjects\InMemoryRepository;
+use Everzet\PersistedObjects\FileRepository;
 
-class InMemoryCatalogue implements Catalogue
+class FileSystemCatalogue implements Catalogue
 {
     public function __construct()
     {
-        $this->repo = new InMemoryRepository(new AccessorObjectIdentifier('getSku'));
+        $this->repo = new FileRepository(sys_get_temp_dir().'/catalogue', new AccessorObjectIdentifier('getSku'));
     }
 
     public function listProduct(Product $product)
@@ -23,5 +23,10 @@ class InMemoryCatalogue implements Catalogue
     public function getAllProducts()
     {
         return $this->repo->getAll();
+    }
+
+    public function clear()
+    {
+        return $this->repo->clear();
     }
 }
